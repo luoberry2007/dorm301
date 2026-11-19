@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>女寝301</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 游戏序章 -->
+<main id="intro" class="intro" data-stage="title" aria-labelledby="introTitle">
+    <div class="intro-content">
+        <div class="intro-door" aria-hidden="true"><span></span></div>
+        <div class="intro-heading">
+            <div class="intro-room" aria-hidden="true">301</div>
+            <h1 id="introTitle">规则怪谈</h1>
+            <p id="introText" aria-live="polite"></p>
+        </div>
+        <div class="intro-actions">
+            <button id="startBtn" class="intro-primary" type="button">开始游戏</button>
+            <div id="introChoices" class="intro-choices" hidden>
+                <button id="checkPhoneBtn" class="intro-primary" type="button">查看手机 <span aria-hidden="true">↗</span></button>
+                <button id="sleepBtn" class="intro-secondary" type="button">继续睡觉</button>
+            </div>
+        </div>
+    </div>
+</main>
+    <div class="phone" inert>
+        <div class="screen">
+
+            <!-- 顶部状态栏 -->
+            <div class="status-bar">
+    <div class="status-left">
+        <span class="status-time">00:36</span>
+    <svg viewBox="0 0 24 24" class="status-icon"
+         fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round"
+         stroke-linejoin="round">
+
+        <!-- 手机主体 -->
+        <rect x="8" y="3" width="8" height="18" rx="2"/>
+
+        <!-- 左右震动线条 -->
+        <path d="M5 8v8M2 10v4M19 8v8M22 10v4"/>
+    </svg>
+</div>
+
+    <div class="status-right">
+        <span class="network-text">5G</span>
+
+        <!-- 信号强度 -->
+        <svg viewBox="0 0 24 24" class="status-icon">
+            <rect x="2" y="16" width="4" height="6" rx="1"/>
+            <rect x="8" y="12" width="4" height="10" rx="1"/>
+            <rect x="14" y="8" width="4" height="14" rx="1"/>
+            <rect x="20" y="4" width="3" height="18" rx="1"/>
+        </svg>
+
+        <!-- 电池 -->
+        <div class="battery">
+            <span>92</span>
+        </div>
+    </div>
+</div>
+
+            <!-- 锁屏主体 -->
+            <div class="lock-screen">
+
+                <div class="lock-icon">
+    <svg width="22" height="22" viewBox="0 0 24 24">
+        <!-- 锁头上方的弧形 -->
+        <path d="M7 10V7a5 5 0 0 1 10 0v3"
+              fill="none"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"/>
+
+        <!-- 锁头下方的主体 -->
+        <rect x="5" y="10"
+              width="14" height="12"
+              rx="2"
+              fill="white"/>
+    </svg>
+</div>
+
+                <div class="date">11月18日 周三</div>
+
+                <div class="time">00:36</div>
+
+                <!-- 小组件预留区域 -->
+                <div class="widgets">
+                    <button id="wechatNotification" class="lock-notification" type="button">
+                        <span id="wechatNotificationIcon" class="lock-notification-icon" aria-hidden="true"></span>
+                        <span class="lock-notification-text"><strong>微信</strong><span id="wechatUnreadText"></span></span>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- 底部快捷栏 -->
+            <div class="bottom-bar">
+
+    <!-- 左侧：电话 -->
+    <div class="shortcut">
+        <svg viewBox="0 0 24 24" class="bottom-icon">
+            <path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2
+                     a2 2 0 0 1 2-.5l2.5.8
+                     a2 2 0 0 1 1.4 1.9V20
+                     a2 2 0 0 1-2.2 2
+                     A19 19 0 0 1 2 4.9
+                     A2 2 0 0 1 4 2.7h2.6
+                     a2 2 0 0 1 1.9 1.4l.8 2.5
+                     a2 2 0 0 1-.5 2z"/>
+        </svg>
+    </div>
+
+    <!-- 中间：睡眠 -->
+    <div class="bottom-text">
+        <svg viewBox="0 0 24 24" class="bottom-icon">
+            <rect x="3" y="10" width="18" height="9" rx="1"/>
+            <path d="M3 13V7a2 2 0 0 1 2-2h14
+                     a2 2 0 0 1 2 2v6"/>
+            <path d="M7 10V8h4v2M13 10V8h4v2"/>
+            <path d="M3 19v2M21 19v2"/>
+        </svg>
+
+        <span>睡眠</span>
+
+        <svg viewBox="0 0 24 24" class="arrow-icon">
+            <path d="m9 5 7 7-7 7"/>
+        </svg>
+    </div>
+
+    <!-- 右侧：相机 -->
+    <div class="shortcut">
+        <svg viewBox="0 0 24 24" class="bottom-icon">
+            <path d="M4 7h3l2-3h6l2 3h3
+                     a2 2 0 0 1 2 2v10
+                     a2 2 0 0 1-2 2H4
+                     a2 2 0 0 1-2-2V9
+                     a2 2 0 0 1 2-2z"/>
+            <circle cx="12" cy="13" r="4"/>
+        </svg>
+    </div>
+
+</div>
+            <button id="unlockPhone" class="unlock-phone" type="button">
+                <span aria-hidden="true">⌃</span> 上滑解锁
+            </button>
+
+            <section id="launcher" class="launcher" aria-label="手机桌面" hidden>
+                <div id="launcherViewport" class="launcher-viewport">
+                    <div id="launcherTrack" class="launcher-track">
+                        <section id="launcherPage1" class="launcher-page launcher-first" aria-label="第 1 页">
+                            <div class="launcher-widgets">
+                                <div class="launcher-clock launcher-glass">
+                                    <time>00:36</time>
+                                    <div><strong>11/18 周三</strong><span>14°C · 阴</span></div>
+                                    <i class="moon-mark" aria-hidden="true"></i>
+                                </div>
+                                <div class="launcher-summary launcher-glass">
+                                    <div class="launcher-weather"><span>天气</span><strong>14°</strong><span>5° <i></i> 16°</span></div>
+                                    <div class="launcher-activity"><span>今日步数</span><strong>4,246</strong><span class="activity-detail">3.26 公里</span><i aria-hidden="true"></i></div>
+                                </div>
+                            </div>
+                            <div id="launcherPrimaryApps" class="launcher-apps"></div>
+                        </section>
+                        <section id="launcherPage2" class="launcher-page launcher-second" aria-label="第 2 页" inert></section>
+                    </div>
+                </div>
+                <nav class="launcher-pagination launcher-glass" aria-label="桌面页码">
+                    <button type="button" aria-label="第 1 页" aria-current="page" aria-controls="launcherPage1"></button>
+                    <button type="button" aria-label="第 2 页" aria-controls="launcherPage2"></button>
+                </nav>
+                <div id="launcherDock" class="launcher-dock launcher-glass" aria-label="常用应用"></div>
+                <div class="launcher-home-bar" aria-hidden="true"></div>
+            </section>
+
+            <div class="chapter-tools">
+                <span id="chapterTimer" class="chapter-timer" role="timer" aria-label="身份核验剩余时间" hidden></span>
+                <button id="chapterSound" type="button" aria-expanded="false" aria-controls="chapterSoundSettings">音效</button>
+            </div>
+            <div id="chapterSoundSettings" class="chapter-sound-settings" hidden>
+                <label>音量 <input id="chapterVolume" type="range" min="0" max="100" value="34"></label>
+                <label><input id="chapterMute" type="checkbox"> 静音</label>
+            </div>
+            <button id="chapterTask" class="chapter-toast" type="button" hidden>
+                <small>微信</small><strong></strong><span aria-hidden="true">›</span>
+            </button>
+            <p id="chapterDeviceNote" class="chapter-device-note" role="status" hidden>已登录平板</p>
+            <div id="chapterKickMenu" class="chapter-kick-menu" role="dialog" aria-label="群成员操作" hidden>
+                <button id="chapterKickAction" type="button">踢出群聊</button>
+            </div>
+            <section id="chapterPanel" class="chapter-panel" aria-labelledby="chapterTitle" hidden>
+                <h2 id="chapterTitle" tabindex="-1"></h2>
+                <div id="chapterBody"></div>
+                <div id="chapterActions" class="chapter-actions"></div>
+            </section>
+            <section id="wechatScreen" class="wechat-screen" aria-label="微信" hidden>
+                <header class="wechat-header">
+                    <button id="wechatBack" class="wechat-back" type="button" aria-label="返回桌面">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg>
+                    </button>
+                    <h1 id="wechatTitle">微信</h1>
+                </header>
+                <div id="wechatOverview" class="wechat-overview">
+                    <label class="wechat-search">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10a6 6 0 1 1-12 0 6 6 0 0 1 12 0Zm-2 4.5 5.5 5.5"/></svg>
+                        <input id="wechatSearch" type="search" placeholder="搜索" aria-label="搜索联系人或群聊">
+                    </label>
+                    <div id="wechatList" class="wechat-list" aria-label="会话列表"></div>
+                    <nav class="wechat-tabs" aria-label="微信导航">
+                        <button id="wechatChatsTab" type="button" aria-current="page">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-8l-5 4v-4H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg>
+                            <span>微信</span>
+                        </button>
+                        <button id="wechatContactsTab" type="button">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM5 19v-1a7 7 0 0 1 14 0v1H5Z"/></svg>
+                            <span>通讯录</span>
+                        </button>
+                    </nav>
+                </div>
+                <div id="wechatThread" class="wechat-thread" hidden>
+                    <button id="pinnedRules" class="pinned-rules" type="button" hidden>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4 7 2-1 4 3 4-.5 2L6 13l.5-2L11 9zM11 15l-2 6"/></svg>
+                        <span><strong>置顶</strong> 十九舍住宿规则</span><span aria-hidden="true">›</span>
+                    </button>
+                    <p id="threadMembers" class="thread-members" hidden></p>
+                    <div id="threadMessages" class="thread-messages" role="log" aria-label="聊天记录" tabindex="0"></div>
+                    <div id="chatComposer" class="chat-composer">
+                        <form id="chatDirectForm" class="chat-direct-form" hidden>
+                            <input type="text" aria-label="消息" placeholder="说点什么…" maxlength="200" enterkeyhint="send">
+                            <button type="submit">发送</button>
+                        </form>
+                        <button id="chatReplyToggle" class="chat-reply-toggle" type="button" aria-controls="chatQuickReplies" aria-expanded="false">
+                            <span>点击选择回复</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                    </div>
+                    <div id="chatQuickReplies" class="chat-quick-replies" role="group" aria-label="快捷回复" hidden></div>
+                    <p id="chatMuted" class="chat-muted" role="status" hidden>全员禁言中</p>
+                </div>
+                <div id="rulesViewer" class="rules-viewer" tabindex="0" hidden>
+                    <img src="assets/dorm-rules.jpg" alt="十九舍住宿规则原图，共十二条。">
+                </div>
+                <div id="wechatStatic" class="wechat-static" aria-hidden="true" hidden></div>
+            </section>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+    <script src="./chapter-audio.js"></script>
+    <script src="./chapter.js"></script>
+</body>
+</html>
